@@ -3,16 +3,8 @@
               web_icon='hr_hospital,static/description/icon.png'
               name='Hospital' sequence='300'/>
 
-     <menuitem id='hr_hospital_patient_menu'
-              parent ='hr_hospital_main_menu'
+    <menuitem id='hr_hospital_patient_menu'
+              parent='hr_hospital_main_menu'
               name='Patient' sequence='400'/>
-
-
-<!--    <menuitem id='odoo_school_library_menu_catalog'-->
-<!--              parent ='odoo_school_library_main_menu'-->
-<!--              name='Catalog' sequence='100'/>-->
-
-<!--    <menuitem id='odoo_school_library_menu_main_settings'-->
-<!--              parent ='odoo_school_library_main_menu'-->
-<!--              name='Settings' sequence='900'/>-->
 </odoo>
+
