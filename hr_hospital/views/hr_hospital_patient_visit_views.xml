@@ -5,6 +5,7 @@
         <field name='model'>hr.hospital.patient.visit</field>
         <field name='arch' type='xml'>
             <tree>
+                 <field name = 'ref'/>
                 <field name='patient_id'/>
                 <field name='doctor_id'/>
             </tree>
@@ -17,16 +18,22 @@
         <field name='model'>hr.hospital.patient.visit</field>
         <field name='arch' type='xml'>
             <form>
-                <header></header>
+                <header>
+<!--                     <button name = 'show_recordset_opportunities' string ='Show models' type = 'object'/>-->
+                </header>
                 <sheet>
                     <group>
                         <group>
+                            <field name = 'ref'/>
                             <field name='patient_id'/>
                             <field name='doctor_id'/>
+                            <field name='planned_visit_date'/>
+                            <field name='visit_date'/>
+                            <field name ='visit_status'/>
                         </group>
                         <group>
-                            <field name='disease_id'/>
-                            <field name='visit_date'/>
+                            <field name = 'diagnosis_ids'/>
+                            <field name = 'active'/>
                             <field name='prescription'/>
                         </group>
                     </group>

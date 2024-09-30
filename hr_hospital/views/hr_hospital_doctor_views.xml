@@ -4,13 +4,31 @@
         <field name='model'>hr.hospital.doctor</field>
         <field name='arch' type='xml'>
             <tree>
-                <field name='name'/>
-                <field name='date_birth'/>
+                <field name='surname_name'/>
+                <field name='gender'/>
                 <field name='specialization'/>
-
             </tree>
         </field>
     </record>
+
+
+
+    <record id="hr_hospital_doctor_print_disease_report" model="ir.actions.server">
+        <field name="name">Print Disease Report</field>
+        <field name="model_id" ref="model_hr_hospital_doctor"/>
+        <field name="binding_model_id" ref="model_hr_hospital_doctor"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+                'type': 'ir.actions.act_window',
+                'res_model': 'hr.hospital.disease.report.wizard',
+                'view_mode': 'form',
+                'target': 'new',
+            }
+        </field>
+    </record>
+
+
 
 
     <record id='hr_hospital_doctor_form' model='ir.ui.view'>
@@ -18,17 +36,23 @@
         <field name='model'>hr.hospital.doctor</field>
         <field name='arch' type='xml'>
             <form>
-                <header></header>
+                <header>
+                    <button name="%(hr_hospital_doctor_print_disease_report)d" string="Print Disease Report" type="action"
+                        class="btn btn-primary"/>
+                </header>
                 <sheet>
+                    <field name='image' widget='image' class='oe_avatar'/>
                     <group>
-                        <field name='name'/>
                         <group>
-                            <field name='date_birth'/>
+                            <field name='surname_name'/>
                             <field name='phone'/>
+                            <field name='is_intern'/>
+                            <field name="doctor_mentor_id" invisible="is_intern == False" />
                         </group>
                         <group>
                             <field name='email'/>
                             <field name='specialization'/>
+                            <field name='gender'/>
                         </group>
                     </group>
                 </sheet>
