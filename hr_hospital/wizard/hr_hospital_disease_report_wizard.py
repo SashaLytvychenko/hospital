@@ -26,7 +26,7 @@ class DiseaseReportWizard(models.TransientModel):
     )
 
     def get_report(self):
-        # Поиск диагнозов по заданным критериям
+
         domain = [('visit_id.visit_date', '>=', self.date_from),
                   ('visit_id.visit_date', '<=', self.date_to)]
 
@@ -38,10 +38,8 @@ class DiseaseReportWizard(models.TransientModel):
 
         diagnoses = self.env['hr.hospital.diagnosis'].search(domain)
 
-        # Логирование для отладки
         _logger.info(f"Diagnoses found: {diagnoses}")
 
-        # Возвращаем действие для отображения найденных диагнозов
         return {
             'name': 'Disease Report',
             'view_mode': 'tree,form',
