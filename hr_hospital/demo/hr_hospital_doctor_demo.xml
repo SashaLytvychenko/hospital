@@ -20,4 +20,11 @@
         <field name='specialization'>pediatrics</field>
     </record>
 
+    <record id='hr_hospital_doctor_4' model='hr.hospital.doctor'>
+        <field name='surname_name'>Sergio Ramos</field>
+        <field name='phone'>+3808458485</field>
+        <field name='email'>ramos@gmail.com</field>
+        <field name='specialization'>pediatrics</field>
+    </record>
+
 </odoo>
