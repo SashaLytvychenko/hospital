@@ -7,6 +7,7 @@
             <tree>
                 <field name='surname_name'/>
                 <field name='gender'/>
+                <field name='phone'/>
             </tree>
         </field>
     </record>
@@ -43,6 +44,16 @@
                                    widget="many2many_tags"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page name="history_diagnosis"
+                              string='History diagnosis'>
+                            <group>
+                                <field name='diagnosis_ids'
+                                       options="{'codeview': 'true'}"
+                                       class='oe-bordered-editor'/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"
@@ -50,6 +61,17 @@
                     <field name="message_ids"/>
                 </div>
             </form>
+        </field>
+    </record>
+
+    <record id='hr_hospital_patient_search' model='ir.ui.view'>
+        <field name='name'>hr.hospital.patient.search</field>
+        <field name='model'>hr.hospital.patient</field>
+        <field name='arch' type='xml'>
+            <search>
+                <field name='surname_name'/>
+                <field name='phone'/>
+            </search>
         </field>
     </record>
 
@@ -69,6 +91,5 @@
 </odoo>
 
 
-        <!--                    <button name="%(hr_hospital.hr_hospital_reappointment_doctor_wizard_action)d" string="Reappoint Doctor"-->
-        <!--                            type="action"/>-->
+
 

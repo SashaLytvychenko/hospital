@@ -6,7 +6,7 @@
         <field name='arch' type='xml'>
             <tree>
                 <field name='name'/>
-                <field name='disease_category_ids' widget = 'many2many_tags'/>
+                <field name='disease_category_id'/>
             </tree>
         </field>
     </record>
@@ -25,7 +25,7 @@
                             <field name='description'/>
                         </group>
                         <group>
-                            <field name='disease_category_ids' widget = 'many2many_tags'/>
+                            <field name='disease_category_id'/>
                         </group>
                     </group>
                 </sheet>
@@ -33,8 +33,23 @@
         </field>
     </record>
 
+    <record id='hr_hospital_disease_type_search' model='ir.ui.view'>
+        <field name='name'>hr.hospital.disease.type.search</field>
+        <field name='model'>hr.hospital.disease.type</field>
+        <field name='arch' type='xml'>
+            <search>
+                <searchpanel>
+                    <field name='disease_category_id' string="Disease panel"
+                           select='one' enable_counters="1"
+                           hierarchize="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
 
-    <record id='action_hr_hospital_disease_type_window' model='ir.actions.act_window'>
+
+    <record id='action_hr_hospital_disease_type_window'
+            model='ir.actions.act_window'>
         <field name='name'>Types of diseases</field>
         <field name='type'>ir.actions.act_window</field>
         <field name='res_model'>hr.hospital.disease.type</field>

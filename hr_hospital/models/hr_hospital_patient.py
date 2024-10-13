@@ -25,6 +25,9 @@ class HospitalPatient(models.Model):
     )
     contact_person_ids = fields.Many2many(
         comodel_name='res.partner')
+    diagnosis_ids = fields.One2many(
+        comodel_name='hr.hospital.diagnosis',
+        inverse_name='visit_id')
 
     @api.constrains('date_birth')
     def _check_date_birth(self):

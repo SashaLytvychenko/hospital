@@ -31,6 +31,7 @@
         'demo/hr.hospital.patient.csv',
         'demo/hr_hospital_disease_category_demo.xml',
         'demo/hr.hospital.patient.visit.csv',
+        'demo/hr.hospital.diagnosis.csv',
 
     ],
 

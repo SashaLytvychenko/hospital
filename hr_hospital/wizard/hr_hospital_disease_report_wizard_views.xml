@@ -24,4 +24,14 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
+
+<!--     <record id="odoo_school_library_book_main_report" model="ir.actions.report">-->
+<!--        <field name="name">Print wizard</field>-->
+<!--        <field name="model">hr.hospital.disease.report.wizard</field>-->
+<!--        <field name="report_type">qweb-html</field>-->
+<!--        <field name="print_report_name">(object.get_report())</field>-->
+<!--        <field name="attachment"/>-->
+<!--        <field name="binding_model_id" ref="hr.hospital.disease.report.wizard"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
 </odoo>

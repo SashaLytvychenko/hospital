@@ -27,4 +27,19 @@
         <field name='specialization'>pediatrics</field>
     </record>
 
+    <record id='hr_hospital_doctor_5' model='hr.hospital.doctor'>
+        <field name='surname_name'>Sadio Mane</field>
+        <field name='phone'>+3804834838</field>
+        <field name='email'>mane@gmail.com</field>
+        <field name='specialization'>pediatrics</field>
+        <field name="is_intern">True</field>
+    </record>
+
+    <record id='hr_hospital_doctor_6' model='hr.hospital.doctor'>
+        <field name='surname_name'>Trent Arnold</field>
+        <field name='phone'>+380676767</field>
+        <field name='email'>arnold@gmail.com</field>
+        <field name='specialization'>pediatrics</field>
+        <field name="is_intern">True</field>
+    </record>
 </odoo>

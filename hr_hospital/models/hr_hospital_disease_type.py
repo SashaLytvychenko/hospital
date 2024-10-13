@@ -7,9 +7,7 @@ class HospitalDisease(models.Model):
 
     name = fields.Char(string='Name of disease', required=True)
     description = fields.Text(string='Disease description')
-    disease_category_ids = fields.Many2many(
+    disease_category_id = fields.Many2one(
         comodel_name='hr.hospital.disease.category',
-        relation="hospital_disease_type_hospital_category_reader_rel",
-        column1="disease_id",
-        column2="category_id",
+
     )
