@@ -115,23 +115,3 @@ class HospitalPatientVisit(models.Model):
                             }
                         }
         return {}
-
-    @api.model
-    def action_create_visit(self, doctor_id):
-        patient = self.env['hr.hospital.patient'].search([], limit=1)
-        if not patient:
-            raise ValidationError(_("No patient found to book a visit."))
-
-        visit = self.create({
-            'doctor_id': doctor_id,
-            'patient_id': patient.id,
-            'planned_visit_date': fields.Datetime.now(),
-        })
-        return {
-            'type': 'ir.actions.act_window',
-            'res_model': 'hr.hospital.patient.visit',
-            'res_id': visit.id,
-            'view_mode': 'form',
-            'view_type': 'form',
-            'target': 'current',
-        }

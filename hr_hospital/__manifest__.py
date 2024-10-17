@@ -24,6 +24,8 @@
         'views/hr_hospital_diagnosis_views.xml',
         'data/hr_hospital_disease_type.xml',
         'views/hr_hospital_disease_category_views.xml',
+        'report/hr_hospital_test_doctor_report.xml',
+
 
     ],
     'demo': [
