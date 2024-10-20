@@ -13,7 +13,9 @@
         'python': [],
     },
     'data': [
+        'security/hr_hospital_groups.xml',
         'security/ir.model.access.csv',
+        'security/hr_hospital_security.xml',
         'views/hr_hospital_menu.xml',
         'wizard/hr_hospital_reappointment_doctor_wizard_views.xml',
         'wizard/hr_hospital_disease_report_wizard_views.xml',
@@ -25,7 +27,6 @@
         'data/hr_hospital_disease_type.xml',
         'views/hr_hospital_disease_category_views.xml',
         'report/hr_hospital_test_doctor_report.xml',
-
 
     ],
     'demo': [

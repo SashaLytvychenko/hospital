@@ -18,3 +18,7 @@ class HospitalPerson(models.AbstractModel):
             ('female', 'Female'),
             ('other', 'Other'),
         ], default='male')
+    user_id = fields.Many2one(
+        comodel_name='res.users',
+        string="Person related to this user:",
+    )

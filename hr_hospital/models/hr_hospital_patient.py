@@ -13,6 +13,7 @@ class HospitalPatient(models.Model):
         comodel_name='hr.hospital.doctor',
         string='Treating doctor',
     )
+
     date_birth = fields.Date(
         string='Date of birth')
     age = fields.Integer(

@@ -49,6 +49,7 @@
                             <field name="doctor_mentor_id"
                                    invisible="is_intern == False"/>
                             <field name='visit_ids'/>
+                            <field name = 'user_id'/>
                         </group>
                         <group>
                             <field name='email'/>
