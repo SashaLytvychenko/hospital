@@ -34,6 +34,7 @@
         <record id="group_hr_hospital_admin" model="res.groups">
             <field name="name">Administrator</field>
             <field name="category_id" ref="category_hr_hospital"/>
+            <field name="users" eval="[Command.link(ref('base.user_admin'))]"/>
             <field name="comment">Administrators of the Hospital</field>
         </record>
 
