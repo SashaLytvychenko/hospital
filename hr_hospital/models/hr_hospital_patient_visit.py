@@ -44,6 +44,11 @@ class HospitalPatientVisit(models.Model):
     )
 
     def unlink(self):
+        """Override unlink method to prevent deletion of visits with associated diagnoses.
+
+                Raises:
+                    ValidationError: If the visit has associated diagnoses.
+                """
         if self.diagnosis_ids:
             raise ValidationError(_('You cannot delete visit with diagnosis'))
         res = super().unlink()
@@ -59,6 +64,11 @@ class HospitalPatientVisit(models.Model):
 
     @api.onchange('planned_visit_date', 'visit_date')
     def _check_statuses(self):
+        """Update visit status based on planned visit date and actual visit date.
+
+                Sets visit status to 'cancelled' if the planned date is in the past,
+                and to 'completed' if the actual visit date matches the planned date.
+                """
         for rec in self:
             if rec.planned_visit_date:
                 if (fields.Date.today() >
@@ -69,6 +79,12 @@ class HospitalPatientVisit(models.Model):
 
     @api.constrains('doctor_id', 'visit_date')
     def _check_doctor_and_visit_date(self):
+        """Check constraints for doctor and visit date upon completion.
+
+               Raises:
+                   ValidationError: If the visit is marked completed and there are
+                   changes to the visit date or doctor.
+               """
         for rec in self:
             if rec.visit_status == 'completed':
                 if rec.visit_date and rec.visit_date != rec.planned_visit_date:
@@ -101,6 +117,11 @@ class HospitalPatientVisit(models.Model):
 
     @api.onchange('diagnosis_ids')
     def _onchange_diagnosis_ids(self):
+        """Trigger a warning if any diagnosis in the visit is approved.
+
+                Returns:
+                    dict: Warning message if any diagnosis is approved.
+                """
         for rec in self:
             if rec.diagnosis_ids:
                 for diagnosis in rec.diagnosis_ids:

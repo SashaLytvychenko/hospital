@@ -32,6 +32,11 @@ class HospitalPatient(models.Model):
 
     @api.constrains('date_birth')
     def _check_date_birth(self):
+        """Check that the birth date is not in the future.
+
+                Raises:
+                    ValidationError: If the birth date is greater than today's date.
+                """
         for rec in self:
             if rec.date_birth and rec.date_birth > fields.Date.today():
                 raise ValidationError(
@@ -40,6 +45,15 @@ class HospitalPatient(models.Model):
 
     @api.depends('date_birth')
     def _compute_age(self):
+        """Compute the age of the patient based on the date of birth.
+
+                The age is calculated by comparing the current date to the
+                patient's date of birth. If the date of birth is not provided,
+                the age will be set to 0.
+
+                This method is automatically triggered whenever the
+                'date_birth' field is modified.
+                """
         for rec in self:
             if rec.date_birth:
                 today = datetime.today()
