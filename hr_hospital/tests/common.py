@@ -1,5 +1,6 @@
-from odoo.tests.common import TransactionCase
 from datetime import datetime, timedelta
+from odoo.tests.common import TransactionCase
+
 
 class TestPatientCommon(TransactionCase):
 
@@ -7,9 +8,9 @@ class TestPatientCommon(TransactionCase):
         super(TestPatientCommon, self).setUp()
         self.patient = self.env['hr.hospital.patient'].create({
             'surname_name': 'Test Patient',
-            'date_birth': datetime.today() - timedelta(days=365 * 30),  # Возраст 30 лет
+            'date_birth': datetime.today() - timedelta(days=365 * 30),
+            # Возраст 30 лет
         })
-
 
         self.doctor = self.env['hr.hospital.doctor'].create({
             'surname_name': 'Test Doctor',
@@ -22,5 +23,3 @@ class TestPatientCommon(TransactionCase):
             'planned_visit_date': planned_visit_date,
             'visit_date': visit_date,
         })
-
-

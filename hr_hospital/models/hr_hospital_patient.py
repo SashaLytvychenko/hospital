@@ -35,8 +35,9 @@ class HospitalPatient(models.Model):
         """Check that the birth date is not in the future.
 
                 Raises:
-                    ValidationError: If the birth date is greater than today's date.
-                """
+                    ValidationError: If the birth date is greater than
+                    today's date.
+                    """
         for rec in self:
             if rec.date_birth and rec.date_birth > fields.Date.today():
                 raise ValidationError(
